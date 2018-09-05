@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="排序问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="排序问题">
+<meta property="og:url" content="http://yoursite.com/2018/09/05/排序问题/index.html">
+<meta property="og:site_name" content="Never的博客">
+<meta property="og:description" content="排序问题">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-05T13:36:24.337Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="排序问题">
+<meta name="twitter:description" content="排序问题">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/05/排序问题/"/>
+
+
+
+
+
+  <title>排序问题 | Never的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Never的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/05/排序问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Never">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/Never.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Never的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">排序问题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-05T21:19:50+08:00">
+                2018-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2018/09/05/排序问题/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/09/05/排序问题/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="排序问题"><a href="#排序问题" class="headerlink" title="排序问题"></a>排序问题</h3><a id="more"></a>
+<p>排序方法        平均情况        最好情况        最坏情况        辅助空间        稳定性</p>
+<p>冒泡排序         O(n^2)           O(n)              O(n^2)            O(1)                稳定</p>
+<p>选择排序         O(n^2)          O(n^2)            O(n^2)            O(1)              不稳定</p>
+<p>插入排序         O(n^2)           O(n)              O(n^2)            O(1)                稳定</p>
+<p>希尔排序O(n*log(n))~O(n^2) O(n^1.3)       O(n^2)            O(1)              不稳定</p>
+<p>堆排序          O(n<em>log(n))     O(n</em>log(n))    O(n*log(n))       O(1)              不稳定</p>
+<p>归并排序       O(n<em>log(n))     O(n</em>log(n))    O(n*log(n))       O(n)                稳定</p>
+<p>快速排序       O(n<em>log(n))     O(n</em>log(n))      O(n^2)            O(1)              不稳定　</p>
+<p>关于稳定性： 假定在待排序的记录序列中，存在多个具有相同的关键字的记录，若经过排序，这些记录的相对次序保持不变，即在原序列中，ri=rj，且ri在rj之前，而在排序后的序列中，ri仍在rj之前，则称这种排序算法是稳定的;否则称为不稳定的。</p>
+<h5 id="（一）冒泡排序"><a href="#（一）冒泡排序" class="headerlink" title="（一）冒泡排序"></a>（一）冒泡排序</h5><p> <strong>基本思想</strong> ：在一组没有排序的数组中，通过自上而下对相邻的两个数进行比较，让较大的数下沉</p>
+<p>即：每当两相邻的数比较后发现它们的排序与排序要求相反时，就将它们互换</p>
+<p><strong>时间复杂度</strong> ：无论给定什么数列，都需要比较 n（n-1）,则为 O(n^2) </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 冒泡排序，返回升序数组</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n - <span class="number">1</span> - i; j++)</span><br><span class="line">				<span class="keyword">if</span> (a[j] &gt; a[j + <span class="number">1</span>]) &#123;</span><br><span class="line">					<span class="keyword">int</span> tmp = a[j];</span><br><span class="line">					a[j] = a[j + <span class="number">1</span>];</span><br><span class="line">					a[j + <span class="number">1</span>] = tmp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p> 改进的冒泡排序 ：</p>
+<p>改进后，当传入的数组为已经排序的的时，只需进行 n 次比较，则为  O(n)，为最优情况 </p>
+<ol>
+<li>对冒泡排序常见的改进方法是加入一标志性变量flag，用于标志某一趟排序过程中是否有数据交换，如果进行某一趟排序时并没有进行数据交换，则说明数据已经按要求排列好，可立即结束排序，避免不必要的比较过程</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 冒泡排序，返回升序数组</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort_1</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">boolean</span> flag;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++) &#123;</span><br><span class="line">			flag = <span class="keyword">false</span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n - <span class="number">1</span> - i; j++)</span><br><span class="line">				<span class="keyword">if</span> (a[j] &gt; a[j + <span class="number">1</span>]) &#123;</span><br><span class="line">					<span class="keyword">int</span> tmp = a[j];</span><br><span class="line">					a[j] = a[j + <span class="number">1</span>];</span><br><span class="line">					a[j + <span class="number">1</span>] = tmp;</span><br><span class="line">					flag = <span class="keyword">true</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			<span class="keyword">if</span> (flag == <span class="keyword">false</span>)</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>对于每次的排序，记录下交换的位置pos,则当一次排序结束后，可以得到最后一次排序的坐标，当下一趟排序开始时，只需要比较到pos 就可以了，因为pos 后面的都已经排序好了。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort_2</span><span class="params">(<span class="keyword">int</span> r[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = n - <span class="number">1</span>; <span class="comment">// 初始时,最后位置保持不变</span></span><br><span class="line">	<span class="keyword">while</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">int</span> pos = <span class="number">0</span>; <span class="comment">// 每趟开始时,无记录交换</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++)</span><br><span class="line">			<span class="keyword">if</span> (r[j] &gt; r[j + <span class="number">1</span>]) &#123;</span><br><span class="line">				pos = j; <span class="comment">// 记录交换的位置</span></span><br><span class="line">				<span class="keyword">int</span> tmp = r[j];</span><br><span class="line">				r[j] = r[j + <span class="number">1</span>];</span><br><span class="line">				r[j + <span class="number">1</span>] = tmp;</span><br><span class="line">			&#125;</span><br><span class="line">		i = pos; <span class="comment">// 为下一趟排序作准备</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="（二）选择排序"><a href="#（二）选择排序" class="headerlink" title="（二）选择排序"></a>（二）选择排序</h5><p><strong>算法思想</strong> ：在第一次排序，扫描N个数据，选出其中的最小值，与第一个元素交换，接着进行第二趟，以此类推</p>
+<p><strong>复杂度</strong> ： 平均时间复杂度：O(n2)。当有重复元素时，会改变位置，比如【2,2,5】，第一趟第1,2就会交换位置，所以此算法为不稳定的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 选择排序</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selectionSort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> index;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		index = i;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; n - <span class="number">1</span>; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (a[j] &lt; a[index])</span><br><span class="line">				index = j;</span><br><span class="line">			<span class="keyword">if</span> (index != i) &#123;</span><br><span class="line">				<span class="keyword">int</span> tmp = a[index];</span><br><span class="line">				a[index] = a[i];</span><br><span class="line">				a[i] = tmp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="三-插入排序"><a href="#三-插入排序" class="headerlink" title="(三) 插入排序"></a>(三) 插入排序</h5><p><strong>算法思想</strong> ：把数据分成有序组和插入组，一般把第一个元素当成有序组，然后从插入组中拿第一个数据，从有序组的最后一个元素进行比较，找到合适的位置并插入，为稳定排序。</p>
+<p><strong>时间复杂度</strong> ：当给定的数据为排序升序时，只要比较N 次，为O(n)；当是降序时，要 n(n+1)/2，所以为O(n^2)</p>
+<p>平均的时间复杂度为O(n^2)。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//插入排序</span></span><br><span class="line">	 <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">InsertionSort</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> n)</span>   </span></span><br><span class="line"><span class="function">	  </span>&#123;  </span><br><span class="line">	    <span class="keyword">int</span> i = <span class="number">0</span>;  </span><br><span class="line">	    <span class="keyword">int</span> j = <span class="number">0</span>;  </span><br><span class="line">	    <span class="keyword">int</span> tmp = <span class="number">0</span>;  </span><br><span class="line">	    <span class="keyword">for</span>(i = <span class="number">1</span>;i&lt;n;i++)  </span><br><span class="line">	    &#123;  </span><br><span class="line">	      tmp = a[i];<span class="comment">//从待插入组取出第一个元素。   </span></span><br><span class="line">	      j = i-<span class="number">1</span>; <span class="comment">//i-1即为有序组最后一个元素（与待插入元素相邻）的下标   </span></span><br><span class="line">	      <span class="keyword">while</span>(j&gt;=<span class="number">0</span>&amp;&amp;tmp&lt;a[j])  <span class="comment">//注意判断条件为两个，j&gt;=0对其进行边界限制。第二个为插入判断条件   </span></span><br><span class="line">	      &#123;  </span><br><span class="line">	        a[j+<span class="number">1</span>] = a[j];<span class="comment">//若不是合适位置，有序组元素向后移动   </span></span><br><span class="line">	        j--;   </span><br><span class="line">	      &#125;  </span><br><span class="line">	      a[j+<span class="number">1</span>] = tmp;<span class="comment">//找到合适位置，将元素插入。   </span></span><br><span class="line">	    &#125;  </span><br><span class="line">	  &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="（四）希尔排序"><a href="#（四）希尔排序" class="headerlink" title="（四）希尔排序"></a>（四）希尔排序</h5><p><strong>算法思想</strong> : 将无序数组分割为若干个子 序列，子序列不是逐段分割的，而是相隔特定的增量的子序列，对各个子序列进行插入排序；然后再选择一个更小的增量，再将数组分割为多个子序列进行排序……最后选择增量为1，即使用直接插入排序，使最终数组成为有序。</p>
+<p><strong>时间复杂度</strong> ：O(n*log(n))~O(n^2) ，最坏情况为O(n^2) </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 希尔排序</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">shell_sort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> size)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (arr == <span class="keyword">null</span>)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">int</span> h = <span class="number">1</span>; <span class="comment">/* 关于步长，取值没有统一标准，必须小于size，最后一次步长要为1 */</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/* 计算首次步长 */</span></span><br><span class="line">	<span class="keyword">while</span> (h &lt; size / <span class="number">3</span>)</span><br><span class="line">		h = <span class="number">3</span> * h + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> i, j, temp;</span><br><span class="line">	<span class="keyword">while</span> (h &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">for</span> (i = h; i &lt; size; ++i) &#123;</span><br><span class="line">			<span class="comment">/* 将a[i]插入到a[i-h]、a[i-2h]、a[i-3h]...中 */</span></span><br><span class="line">			<span class="keyword">for</span> (j = i; j &gt;= h &amp;&amp; (arr[j] &lt; arr[j - h]); j -= h) &#123;</span><br><span class="line">				temp = arr[j];</span><br><span class="line">				arr[j] = arr[j - h];</span><br><span class="line">				arr[j - h] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">/* 计算下一轮步长 */</span></span><br><span class="line">		h = h / <span class="number">3</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="（五）快速排序"><a href="#（五）快速排序" class="headerlink" title="（五）快速排序"></a>（五）快速排序</h5><p><strong>快速排序</strong> ：选取一个数，位置i，进行排序比较，从j开始，选择比选取的数小的，填补到原来的位置，则此时j位置，空出来，再从i++开始，选择比i大的数，填补到j的位置，重复排序,则是大的放右边，小的左边，然后继续递归调动。</p>
+<p><strong>时间复杂度</strong> ：O(N*logN)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//快速排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quick_sort</span><span class="params">(<span class="keyword">int</span> s[], <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &lt; r)</span><br><span class="line">    &#123;</span><br><span class="line">		</span><br><span class="line">        <span class="keyword">int</span> i = l, j = r, x = s[l];</span><br><span class="line">        <span class="keyword">while</span> (i &lt; j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(i &lt; j &amp;&amp; s[j] &gt;= x) <span class="comment">// 从右向左找第一个小于x的数</span></span><br><span class="line">				j--;  </span><br><span class="line">            <span class="keyword">if</span>(i &lt; j) </span><br><span class="line">				s[i++] = s[j];</span><br><span class="line">			</span><br><span class="line">            <span class="keyword">while</span>(i &lt; j &amp;&amp; s[i] &lt; x) <span class="comment">// 从左向右找第一个大于等于x的数</span></span><br><span class="line">				i++;  </span><br><span class="line">            <span class="keyword">if</span>(i &lt; j) </span><br><span class="line">				s[j--] = s[i];</span><br><span class="line">        &#125;</span><br><span class="line">        s[i] = x;</span><br><span class="line">        quick_sort(s, l, i - <span class="number">1</span>); <span class="comment">// 递归调用 </span></span><br><span class="line">        quick_sort(s, i + <span class="number">1</span>, r);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/05/MySQL数据库开发篇/" rel="next" title="MySQL数据库开发篇">
+                <i class="fa fa-chevron-left"></i> MySQL数据库开发篇
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/05/堆内存设置/" rel="prev" title="堆内存设置">
+                堆内存设置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/Never.jpg"
+                alt="Never" />
+            
+              <p class="site-author-name" itemprop="name">Never</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Hghhhh" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:huangguohang123@outlook.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#排序问题"><span class="nav-text">排序问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#（一）冒泡排序"><span class="nav-text">（一）冒泡排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（二）选择排序"><span class="nav-text">（二）选择排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三-插入排序"><span class="nav-text">(三) 插入排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（四）希尔排序"><span class="nav-text">（四）希尔排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（五）快速排序"><span class="nav-text">（五）快速排序</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Never</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v="></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v="></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytyqQfqe';
+      var conf = '6a41e203093499026ca336cb276dfdc4';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

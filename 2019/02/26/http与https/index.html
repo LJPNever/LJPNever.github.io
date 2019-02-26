@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Cookie Session token">
+<meta name="description" content="http 与 https">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cookie Session token">
-<meta property="og:url" content="http://yoursite.com/2018/11/28/Cookie Session token/index.html">
+<meta property="og:title" content="http 与 https">
+<meta property="og:url" content="http://yoursite.com/2019/02/26/http与https/index.html">
 <meta property="og:site_name" content="Never的博客">
-<meta property="og:description" content="Cookie Session token">
+<meta property="og:description" content="http 与 https">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-28T03:13:24.047Z">
+<meta property="og:updated_time" content="2019-02-26T14:35:21.631Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cookie Session token">
-<meta name="twitter:description" content="Cookie Session token">
+<meta name="twitter:title" content="http 与 https">
+<meta name="twitter:description" content="http 与 https">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/28/Cookie Session token/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/02/26/http与https/"/>
 
 
 
 
 
-  <title>Cookie Session token | Never的博客</title>
+  <title>http 与 https | Never的博客</title>
   
 
 
@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/28/Cookie Session token/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/26/http与https/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Never">
@@ -269,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Cookie Session token</h1>
+          <h1 class="post-title" itemprop="name headline">http 与 https</h1>
         
 
         <div class="post-meta">
@@ -281,8 +281,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-28T09:19:58+08:00">
-                2018-11-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-26T22:19:58+08:00">
+                2019-02-26
               </time>
             
 
@@ -301,8 +301,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2018/11/28/Cookie Session token/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/11/28/Cookie Session token/" itemprop="commentsCount"></span>
+                <a href="/2019/02/26/http与https/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2019/02/26/http与https/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -330,63 +330,52 @@
       
 
       
-        <h3 id="Cookie-Session-token"><a href="#Cookie-Session-token" class="headerlink" title="Cookie Session token"></a>Cookie Session token</h3><a id="more"></a>
-<p>​</p>
-<h4 id="一-Cookie-技术"><a href="#一-Cookie-技术" class="headerlink" title="一 Cookie 技术"></a>一 Cookie 技术</h4><p>Cookie 技术是客户端技术，程序把每个用户的数据以cookie的形式写给用户的浏览器，当用户再次访问服务器中的web资源时，就会带着数据返回，这样，web资源处理的就是用户自己的数据了</p>
-<p>所以，cookie技术就是把用户的数据保存到浏览器（客户端）</p>
-<p><strong>常用api</strong>：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Cookie(Name,Value)：构造Cookie对象</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setPath</span><span class="params">(String url)</span>:设置cookie有效访问路径</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setMaxAge</span><span class="params">(<span class="keyword">int</span> expiry)</span>:设置cookie的有效时间</span></span><br><span class="line"><span class="function">enpiry可以为正整数，负整数和零</span></span><br><span class="line"><span class="function">正整数：表示Cookie数据保存浏览器的缓存到硬盘中，数值表示保存的时间</span></span><br><span class="line"><span class="function">负整数：表示Cookie数据保存到浏览器的内存中，浏览器关闭Cookie就丢失了</span></span><br><span class="line"><span class="function">零：表示删除同名的Cookie数据</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setValue</span><span class="params">(String newvalue)</span>:设置cookie的值</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> response.<span class="title">addCookie</span><span class="params">(Cookie cookie)</span>:发送cookie到浏览器保存</span></span><br><span class="line"><span class="function">Cookie[] request.<span class="title">getCookies</span><span class="params">()</span>:服务器端接受cookie</span></span><br></pre></td></tr></table></figure>
-<p><strong>原理</strong>：</p>
+        <h3 id="http-与-https"><a href="#http-与-https" class="headerlink" title="http 与 https"></a>http 与 https</h3><a id="more"></a>
+<ul>
+<li>超文本传输协议HTTP协议被用于在Web浏览器和网站服务器之间传输信息，HTTP协议以明文的方式发送内容，不提供任何方式的数据加密。如果攻击者截取了Web浏览器和网站服务器之间的传输报文，就可以直接读懂其中的信息，因此，HTTP协议不适合传输一些敏感信息。为了解决HTTP的这个缺陷，需要使用另一种协议，则HTTPS协议，HTTPS协议是在HTTP的基础上加入了SSL协议，SSL依靠证书来验证服务器的身份，并为浏览器和服务器之间的通信加密。</li>
+</ul>
+<h4 id="HTTP与HTTPS区别"><a href="#HTTP与HTTPS区别" class="headerlink" title="HTTP与HTTPS区别"></a>HTTP与HTTPS区别</h4><ul>
+<li><p>基本概念：</p>
 <ol>
-<li><p>服务器创建Cookie对象，把会话数据存储到Cookie对象中</p>
-<p>new Cookie(“name”,”value”);</p>
-</li>
-<li><p>服务器发送cookie信息到浏览器</p>
-<p>response.addCookie(cookie)；实际上是隐藏发送一个set-cookie名称的响应头</p>
-</li>
-<li><p>浏览器得到服务器的cookie并保存在浏览器端</p>
-</li>
-<li><p>浏览器在下次访问服务器时，会带着cookie信息，包含在http的请求头</p>
-</li>
-<li><p>服务器接收来自浏览器带来信息</p>
-<p>request.getCookies();</p>
-</li>
+<li>超文本传输协议（http）是一个基于请求与响应模式的、无状态的、应用层的协议，常基于TCP的连接方式，用于从WWW服务器传输超文本到本地浏览器的传输协议，可以使浏览器更加高效，使网络传输减少。</li>
+<li>超文本传输安全协议（https）是一种透过计算机网络进行安全通信的传输协议。HTTPS经由HTTP进行通信，但利用SSL/TLS协议来加解密数据包。</li>
 </ol>
-<p>Cookie数据类型只能保存非中文字符串类型的。可以保存多个Cookie，但是浏览器一般只允许存放300个Cookie，每个站点最多存放20个Cookie，每个Cookie的大小限制为4KB</p>
-<h4 id="二-Session-技术"><a href="#二-Session-技术" class="headerlink" title="二 Session 技术"></a>二 Session 技术</h4><p>Session是服务器端技术，利用这个技术服务器运行时可以为每一个用户的数据创建一个独享的Session对象，当用户访问服务器的Web资源时，可以把各自的数据放在Session中，当再次访问服务器中其他的WEB资源时，其他的web资源可以在从用户的Session中取出用户数据</p>
-<p><strong>常用api</strong> :</p>
-<p>Session是HttpSession的类，用于保存会话数据（会话：客户端和服务器之间的数据传输）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HttpSession session=request.getSession():创建一个Session对象</span><br><span class="line">session.setAttribute(<span class="string">"key"</span>,<span class="string">"value"</span>) :保存会话数据</span><br><span class="line">session.getAttribute(<span class="string">"key"</span>):取出会话数据</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setMaxInactiveInterval</span><span class="params">(<span class="keyword">int</span> interval)</span>:设置session的有效时间,默认30分钟自动回收Session对象</span></span><br><span class="line"><span class="function">String <span class="title">getId</span><span class="params">()</span>:得到session编号</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">invalidate</span><span class="params">()</span>:销毁sesson对象</span></span><br></pre></td></tr></table></figure>
-<p><strong>原理 ：</strong> </p>
-<p> 1.第一次访问创建Session对象，给Session对象分配一个唯一的ID，叫JSESSIONID。</p>
-<p>2.把JSESSIONID作为Cookie的值发送给浏览器保存</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"JSESSIONID"</span>, sessionID);</span><br><span class="line">response.addCookie(cookie);</span><br></pre></td></tr></table></figure>
-<p>3.第二次访问的时候，浏览器带着JSESSIONID的cookie访问服务器<br>4.服务器得到JSESSIONID，在服务器的内存中搜索是否存放对应编号的session对象<br>5.如果找到对应编号的session对象，直接返回该对象<br>6.如果找不到对应编号session对象，创建新的session对象，继续走1的流程</p>
-<p>即通过JSESSION的cookie值在服务器找session对象</p>
-<h4 id="Token"><a href="#Token" class="headerlink" title="Token"></a>Token</h4><p>对Token认证机制有5点直接注意的地方：</p>
-<ul>
-<li>一个Token就是一些信息的集合；</li>
-<li>在Token中包含足够多的信息，以便在后续请求中减少查询数据库的几率；</li>
-<li>服务端需要对cookie和HTTP Authrorization Header进行Token信息的检查；</li>
-<li>基于上一点，你可以用一套token认证代码来面对浏览器类客户端和非浏览器类客户端；</li>
-<li>因为token是被签名的，所以我们可以认为一个可以解码认证通过的token是由我们系统发放的，其中带的信息是合法有效的；</li>
-</ul>
-<p><strong>原理</strong>：</p>
-<p>当用户登录验证成功后，通过获取token签名生成密钥信息，并传送给客户端，客户端接收到token后存储起来，客户端每次请求服务器资源时需要带着签发的Token,服务器验证请求中的token信息，如果成功，则返回数据。</p>
-<p><strong>token技术的优点</strong> ： </p>
-<ul>
-<li><p>支持跨域访问: Cookie是不允许垮域访问的，这一点对Token机制是不存在的，前提是传输的用户认证信息通过HTTP头传输.</p>
+<p>​     https的主要作用是分为：一、建立一个信息安全通道，来保证数据传输的安全；另一种是确认网站的真实性</p>
 </li>
-<li><p>无状态(也称：服务端可扩展行):Token机制在服务端不需要存储session信息，因为Token 自身包含了所有登录用户的信息，只需要在客户端的cookie或本地介质存储状态信息.</p>
-</li>
-<li><p>去耦: 不需要绑定到一个特定的身份验证方案。Token可以在任何地方生成，只要在你的API被调用的时候，你可以进行Token生成调用即可.</p>
-</li>
-<li><p>因为不再依赖于Cookie，所以你就不需要考虑对CSRF（跨站请求伪造）的防范。</p>
-</li>
-<li><p>性能: 一次网络往返时间（通过数据库查询session信息）总比做一次HMACSHA256计算 的Token验证和解析要费时得多.</p>
-<p>​</p>
+<li><p>区别</p>
 </li>
 </ul>
+<ol>
+<li>https协议需要到ca申请证书，一般免费证书少，因此需要一定费用</li>
+<li>http是超文本协议，信息是明文传输，https则是具有安全性的ssl加密传输协议</li>
+<li>http和https使用的是完全不同的连接方式，用的端口也不一样，http使用80，https使用443</li>
+<li>http的连接很简单，是无状态的；https协议是有ssl+http协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。</li>
+</ol>
+<ul>
+<li>HTTPS传输过程：</li>
+</ul>
+<ol>
+<li>客户端使用url向服务器发起请求，要求与Web服务器建立SSL连接</li>
+<li>服务器收到客户端请求后，会把网址的证书信息（包含公钥）传送给客户端</li>
+<li>客户端的浏览器验证公钥是否有效，然后根据与服务器协商的SSL安全等级，之后利用证书对一个随机值进行加密，之后把加密信息传输给服务器</li>
+<li>服务器利用自己的私钥解密出会话的密钥，然后把内容通过该值进行对称加密，把信息传输给客户端，这样就实现了安全加密传输。</li>
+</ol>
+<ul>
+<li>https的优点：<ol>
+<li>使用https协议可认证用户和服务器，确保数据发送到正确的客户机和服务器</li>
+<li>https协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，要比http协议安全，可防止数据在传输过程中不被窃取、改变，确保数据的完整性。</li>
+<li>HTTPS是现行架构下最安全的解决方案，虽然不是绝对安全，但它大幅增加了中间人攻击的成本。</li>
+</ol>
+</li>
+<li>https的缺点：</li>
+</ul>
+<ol>
+<li>HTTPS协议握手阶段比较费时，会使页面的加载时间延长近50%，增加10%到20%的耗电</li>
+<li>HTTPS连接缓存不如HTTP高效，会增加数据开销和功耗，甚至已有的安全措施也会因此而受到影响</li>
+<li>SSL证书需要钱，功能越强大的证书费用越高，个人网站、小网站没有必要一般不会用</li>
+<li>SSL证书通常需要绑定IP，不能在同一IP上绑定多个域名，IPv4资源不可能支撑这个消耗</li>
+<li>HTTPS协议的加密范围也比较有限，在黑客攻击、拒绝服务攻击、服务器劫持等方面几乎起不到什么作用。最关键的，SSL证书的信用链体系并不安全，特别是在某些国家可以控制CA根证书的情况下，中间人攻击一样可行</li>
+</ol>
 
       
     </div>
@@ -411,8 +400,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/17/TCP三次握手与四次挥手/" rel="next" title="TCP三次握手与四次挥手">
-                <i class="fa fa-chevron-left"></i> TCP三次握手与四次挥手
+              <a href="/2019/02/26/滑动窗口算法/" rel="next" title="滑动窗口">
+                <i class="fa fa-chevron-left"></i> 滑动窗口
               </a>
             
           </div>
@@ -420,10 +409,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/26/redis持久化方式/" rel="prev" title="redis持久化方式">
-                redis持久化方式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -562,7 +547,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie-Session-token"><span class="nav-text">Cookie Session token</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-Cookie-技术"><span class="nav-text">一 Cookie 技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-Session-技术"><span class="nav-text">二 Session 技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Token"><span class="nav-text">Token</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#http-与-https"><span class="nav-text">http 与 https</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP与HTTPS区别"><span class="nav-text">HTTP与HTTPS区别</span></a></li></ol></li></ol></div>
             
 
           </div>

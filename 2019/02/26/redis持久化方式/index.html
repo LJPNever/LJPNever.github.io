@@ -79,26 +79,17 @@
 
 
 
-<meta name="description" content="Redis 的数据结构">
+<meta name="description" content="redis的持久化方式RDB和AOF的区别">
 <meta property="og:type" content="article">
-<meta property="og:title" content="redis 的数据结构">
-<meta property="og:url" content="http://yoursite.com/2018/11/11/redis数据结构/index.html">
+<meta property="og:title" content="redis持久化方式">
+<meta property="og:url" content="http://yoursite.com/2019/02/26/redis持久化方式/index.html">
 <meta property="og:site_name" content="Never的博客">
-<meta property="og:description" content="Redis 的数据结构">
+<meta property="og:description" content="redis的持久化方式RDB和AOF的区别">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://neverljp-1256310950.cos.ap-guangzhou.myqcloud.com/a114f3147daeb638620f9f40d752f8e.png">
-<meta property="og:image" content="https://neverljp-1256310950.cos.ap-guangzhou.myqcloud.com/e0a9b993309d39241585bf9d3193dfe.png">
-<meta property="og:image" content="https://neverljp-1256310950.cos.ap-guangzhou.myqcloud.com/df1b8ec4f2cb232015852d25683834b.png">
-<meta property="og:image" content="https://neverljp-1256310950.cos.ap-guangzhou.myqcloud.com/e9066065767673b794d3cfe107df92c.png">
-<meta property="og:image" content="https://neverljp-1256310950.cos.ap-guangzhou.myqcloud.com/b2b25d7d88d66f764f2d17c9bea4b51.png">
-<meta property="og:image" content="https://neverljp-1256310950.cos.ap-guangzhou.myqcloud.com/e959e69ee5d3bba5a4c1204b2f5f1f6.png">
-<meta property="og:image" content="https://neverljp-1256310950.cos.ap-guangzhou.myqcloud.com/f38331f0fa9b3bec8a45e31a2bc35d1.png">
-<meta property="og:image" content="https://neverljp-1256310950.cos.ap-guangzhou.myqcloud.com/7b96d927f91e256b50e9752086eefcc.png">
-<meta property="og:updated_time" content="2018-11-15T12:02:43.121Z">
+<meta property="og:updated_time" content="2019-02-26T09:19:02.074Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="redis 的数据结构">
-<meta name="twitter:description" content="Redis 的数据结构">
-<meta name="twitter:image" content="https://neverljp-1256310950.cos.ap-guangzhou.myqcloud.com/a114f3147daeb638620f9f40d752f8e.png">
+<meta name="twitter:title" content="redis持久化方式">
+<meta name="twitter:description" content="redis的持久化方式RDB和AOF的区别">
 
 
 
@@ -128,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/11/redis数据结构/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/02/26/redis持久化方式/"/>
 
 
 
 
 
-  <title>redis 的数据结构 | Never的博客</title>
+  <title>redis持久化方式 | Never的博客</title>
   
 
 
@@ -261,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/11/redis数据结构/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/26/redis持久化方式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Never">
@@ -278,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">redis 的数据结构</h1>
+          <h1 class="post-title" itemprop="name headline">redis持久化方式</h1>
         
 
         <div class="post-meta">
@@ -290,8 +281,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-11T09:19:58+08:00">
-                2018-11-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-26T00:00:00+08:00">
+                2019-02-26
               </time>
             
 
@@ -310,8 +301,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2018/11/11/redis数据结构/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/11/11/redis数据结构/" itemprop="commentsCount"></span>
+                <a href="/2019/02/26/redis持久化方式/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2019/02/26/redis持久化方式/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -339,48 +330,54 @@
       
 
       
-        <ol>
-<li><h3 id="Redis-的数据结构"><a href="#Redis-的数据结构" class="headerlink" title="Redis 的数据结构"></a>Redis 的数据结构</h3><a id="more"></a>
-<p>Redis 是一个基于键值对（key-value）的非关系型数据库，Redis 数据库中的每个键值对都是由对象组成的：</p>
-<p>​    数据库键总是一个字符串对象（string object）；</p>
-<p>   数据库的值可以为字符串对象(string)、列表对象（list）、哈希对象（hash）、集合对象（set）、  有序集合（ zset）对象这五种对象的其中一种。这些数据类型都支持push/pop、</p>
-<p>​    add/remove以及取交集并集及更丰富的操作，而且这些操作都是原子性的</p>
-<p>简单操作：</p>
-<p>字符串操作（string）</p>
-<p>set key value  </p>
-<p>get key  </p>
-<p>del key</p>
-<p> <img src="https://neverljp-1256310950.cos.ap-guangzhou.myqcloud.com/a114f3147daeb638620f9f40d752f8e.png" alt="a114f3147daeb638620f9f40d752f8e"></p>
-<p>列表操作（list）</p>
-<p>lpush 将元素推入列表的左端</p>
-<p>rpush 将元素推入列表的右端</p>
-<p>lpop  从列表左端弹出元素</p>
-<p>rpop  从列表右端弹出元素</p>
-<p>lindex 获取列表在给定位置上的一个元素</p>
-<p>lrange 获取列表在给定范围上的所有元素</p>
-<p>lpushx 只能插入已经存在的key,且一次只能插入一次</p>
-<p><img src="https://neverljp-1256310950.cos.ap-guangzhou.myqcloud.com/e0a9b993309d39241585bf9d3193dfe.png" alt="e0a9b993309d39241585bf9d3193dfe">    </p>
-<p>​                        <img src="https://neverljp-1256310950.cos.ap-guangzhou.myqcloud.com/df1b8ec4f2cb232015852d25683834b.png" alt="df1b8ec4f2cb232015852d25683834b"></p>
-<p>集合操作（set）</p>
-<p>SADD将元素添加到集合     成功添加返回1，如果返回0则表示集合中已经有这个元素了</p>
-<p>SREM从集合里面移除元素     存在返回1，不存在返回0</p>
-<p>SISMEMBER快速地检查一个元素是否已经存在于集合中</p>
-<p>SMEMBERS获取集合包含的所有元素</p>
-<p>​</p>
-<p><img src="https://neverljp-1256310950.cos.ap-guangzhou.myqcloud.com/e9066065767673b794d3cfe107df92c.png" alt="e9066065767673b794d3cfe107df92c">    </p>
-<p>哈希操作（hash）</p>
-<p>HSET     在散列里面关联起给定的键值对</p>
-<p>HGET     获取指定散列键的值</p>
-<p>HGETALL     获取散列包含的所有键值对</p>
-<p>HDEL     如果给定键存在于散列里面，那么移除这个键</p>
-<p><img src="https://neverljp-1256310950.cos.ap-guangzhou.myqcloud.com/b2b25d7d88d66f764f2d17c9bea4b51.png" alt="b2b25d7d88d66f764f2d17c9bea4b51">    <img src="https://neverljp-1256310950.cos.ap-guangzhou.myqcloud.com/e959e69ee5d3bba5a4c1204b2f5f1f6.png" alt="e959e69ee5d3bba5a4c1204b2f5f1f6"></p>
-<p> 有序集合（zset）</p>
-<p>有序集合的键被成为成员，每个成员都是各不相同的。有序集合的值被成为分值，分值必须为浮点数。<br>有序集合是redis里面唯一一个既可以根据成员访问元素，又可以根据分值以及分值的排列顺序来访问元素 的结构。<br>ZADD     将一个带有给定分值的成员添加到有序集合里面<br>ZRANGE     根据元素在有序排列中所处的位置，从有序集合里面获取多个元素<br>ZRANGEBYSCORE     获取有序集合在给定分值范围内的所有元素</p>
-<p>​                            <img src="https://neverljp-1256310950.cos.ap-guangzhou.myqcloud.com/f38331f0fa9b3bec8a45e31a2bc35d1.png" alt="f38331f0fa9b3bec8a45e31a2bc35d1"></p>
-<p>​</p>
-<p><img src="https://neverljp-1256310950.cos.ap-guangzhou.myqcloud.com/7b96d927f91e256b50e9752086eefcc.png" alt="7b96d927f91e256b50e9752086eefcc"></p>
+        <h3 id="redis的持久化方式RDB和AOF的区别"><a href="#redis的持久化方式RDB和AOF的区别" class="headerlink" title="redis的持久化方式RDB和AOF的区别"></a>redis的持久化方式RDB和AOF的区别</h3><a id="more"></a>
+<ul>
+<li>RDB:指在指定的时间间隔内将内存中的数据集快照写入磁盘，实际操作过程是fork一个子进程，先将数据集写入临时文件，写入成功后，在替换之前的文件，用二进制压缩存储。触发RDB持久化过程分为手动触发和自动触发。</li>
+</ul>
+<p>​       优点：</p>
+<ol>
+<li>使用单独子进程来进行持久化，主进程不会有任何IO操作，确保了redis的高性能。</li>
+</ol>
+<ol start="2">
+<li>一旦采用该方式，整个redis数据库将只包含一个文件，对于文件备份非常完美，用于灾难      性故障的恢复十分合适。</li>
+</ol>
+<p>​      缺点：</p>
+<ol>
+<li><p>如果你想保证数据的高可用性，即最大限度的避免数据丢失，那么RDB将不是一个很好的选择。因为系统一旦在定时持久化之前出现宕机现象，此前没有来得及写入磁盘的数据都将丢失。</p>
+</li>
+<li><p>由于RDB是通过fork子进程来协助完成数据持久化工作的，因此，如果当数据集较大时，可能会导致整个服务器停止服务几百毫秒，甚至是1秒钟</p>
+<p>写入临时文件的时间点可以通过配置文件来确定，通过配置<strong>redis在n秒内如果超过m个key被修改</strong>这执行一次RDB操作，这个操作就类似于在这个时间点来保存一次Redis的所有数据，一次快照数据。所有这个持久化方法也通常叫做snapshots。</p>
 </li>
 </ol>
+<p>​     RDB 默认开启，在配置文件中通过 save  n  m 来决定</p>
+<p>save 900 1              #在900秒(15分钟)之后，如果至少有1个key发生变化，则dump内存快照。</p>
+<p>save 300 10            #在300秒(5分钟)之后，如果至少有10个key发生变化，则dump内存快照。</p>
+<p>save 60 10000        #在60秒(1分钟)之后，如果至少有10000个key发生变化，则dump内存快照</p>
+<p><strong>save命令：</strong> 阻塞当前Redis服务器，直到RDB过程完成为止，对于内存比较大的实例会造成长时间阻塞，先上环境不建议使用 </p>
+<p>  <strong>bgsave命令：</strong>Redis进程执行fork操作创建子进程，RDB持久化过程由子进程负责，完成后自动结束。阻塞只发生在fork阶段，一段时间很短。</p>
+<p>bgsave是针对save的优化，所以redis内部有关RDB的操作都是采用bgsave</p>
+<p>bgsave 是主流的触发RDB持久化的方式：</p>
+<p>执行bgsave,redis父进程判断当前是否存在子进程，如果有bgsave命令则直接返回，否则父进程执行fork操作创建子进程，fork操作过程中父进程会阻塞，等父进程fork完成后，不再阻塞父进程，可以继续响应其他命令，子进程创建RDB文件，根据父进程内存生成临时快照文件，完成后对原有文件进行原子替换。</p>
+<ul>
+<li>AOF:以独立日志的方式记录每次写命令（记录每次的写、删命令，不记录读），重启时再重新执行AOF文件中命令达到恢复数据的目的。AOF的主要作用是解决了数据持久化的实时性，目前已经是Redis持久化的主流方式。</li>
+</ul>
+<p>​      优点：</p>
+<ol>
+<li>该机制可以带来更高的数据安全性，即数据持久性，Redis中提供了3中同步策略，即每秒同步、每修改同步和不同步，不同策略效率不同</li>
+<li>由于该机制对日志文件的写入操作采用的是append模式，因此在写入过程中即使出现宕机现象，也不会破坏日志文件中已经存在的内容，如果设置追加file的时间是1s，如果redis发生故障，最多会丢失1s的数据</li>
+<li>如果日志过大，Redis可以自动启用rewrite机制。即Redis以append模式不断的将修改数据写入到老的磁盘文件中，同时Redis还会创建一个新的文件用于记录此期间有哪些修改命令被执行。因此在进行rewrite切换时可以更好的保证数据安全性。</li>
+</ol>
+<p>​     缺点：</p>
+<ol>
+<li>对于相同数量的数据集而言，AOF文件通常要大于RDB文件</li>
+<li>根据同步策略的不同，AOF在运行效率上往往会慢于RDB</li>
+</ol>
+<p>​    AOF默认关闭，开启方法，修改配置文件reds.conf： <strong>appendonly yes</strong></p>
+<p>appendfsync always     #每次有数据修改发生时都会写入AOF文件。</p>
+<p>appendfsync everysec  #每秒钟同步一次，该策略为AOF的缺省策略。（redis 推荐）</p>
+<p>appendfsync no          #从不同步。高效但是数据不会被持久化。</p>
+<p>AOF的工作流程操作：命令写入（append）、文件同步（sync）、文件重写（rewrite）、重启加载（load）</p>
+<p>所有的写入命令会追加到aof_buf（缓冲区）中，AOF缓冲区根据对应的策略向硬盘做同步操作，随着AOF文件越来越大，需要定期对AOF文件进行重写，达到压缩的目的， 当Redis服务重启时，可以加载AOF文件进行数据恢复。了解AOF工作流程之后，下面针对每个步骤做详细介绍。</p>
 
       
     </div>
@@ -405,8 +402,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/01/springboot 整合redis/" rel="next" title="Springboot 整合redis">
-                <i class="fa fa-chevron-left"></i> Springboot 整合redis
+              <a href="/2018/11/28/Cookie Session token/" rel="next" title="Cookie Session token">
+                <i class="fa fa-chevron-left"></i> Cookie Session token
               </a>
             
           </div>
@@ -415,8 +412,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/17/TCP三次握手与四次挥手/" rel="prev" title="TCP三次握手与四次挥手">
-                TCP三次握手与四次挥手 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/26/滑动窗口算法/" rel="prev" title="滑动窗口">
+                滑动窗口 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -556,7 +553,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-的数据结构"><span class="nav-text">Redis 的数据结构</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#redis的持久化方式RDB和AOF的区别"><span class="nav-text">redis的持久化方式RDB和AOF的区别</span></a></li></ol></div>
             
 
           </div>
